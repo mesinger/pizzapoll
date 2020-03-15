@@ -1,0 +1,15 @@
+﻿@page
+@model App.Pages.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+@foreach (var pizza in Model.Pizzas)
+{
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <span class="float-left">@pizza.Name, @pizza.Price</span>
+        <span class="float-right"><a asp-page="/Order/Index" asp-route-pizzaId="@pizza.Id">Bestellen</a></span>
+    </div>
+}

@@ -1,0 +1,27 @@
+﻿@page "{handler?}"
+@model App.Pages.Admin.AdminIndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "Shared/_Layout";
+}
+
+<h1>
+    Amore's Pizza Poll Admin Page
+</h1>
+
+@if (Model.HasCurrentSession)
+{
+    <h2>
+        Order session in progress
+    </h2>
+    <p>
+        Order id: @Model.CurrentSessionId
+    </p>
+    
+    <a asp-page-handler="closesession">Close order session</a>
+}
+else
+{
+    <a asp-page-handler="opensession">Open new order session</a>
+}
