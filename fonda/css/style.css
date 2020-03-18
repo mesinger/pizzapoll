@@ -1,0 +1,42 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+main {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.bg-amore-primary {
+    background-color: #840f0f;
+}
+
+.bg-amore-secondary {
+    background-color: #dddddd;
+}
+
+.bg-amore-dark {
+    background-color: black;
+}
+
+.amore-font {
+    font-family: 'Lobster', cursive;
+}
+
+.pizza-item img {
+    width: 250px;
+}
+
+.pizza-item {
+    padding: 3px;
+    margin-bottom: 15px;
+}
+
+.w-24 {
+    width: 24%;
+}
+
+.w-49 {
+    width: 49%;
+}
