@@ -6,10 +6,31 @@
     Layout = "_Layout";
 }
 
-@foreach (var pizza in Model.Pizzas)
-{
-    <div class="shadow p-3 mb-5 bg-white rounded">
-        <span class="float-left">@pizza.Name, @pizza.Price</span>
-        <span class="float-right"><a asp-page="/Order/Index" asp-route-pizzaId="@pizza.Id">Bestellen</a></span>
-    </div>
-}
+<header class="text-center">
+    <img src="img/header-pizza.jpg" class="img-fluid p-2 w-100" alt="pizza-header">
+</header>
+
+<section class="pizza-list">
+    
+    @foreach (var pizza in Model.Pizzas)
+    {
+        <div class="media pizza-item shadow rounded bg-amore-secondary">
+            
+            <img src="@pizza.ProductImagePath" class="mr-3 d-none d-md-block" alt="pizza-image">
+            
+            <div class="media-body h-100 pt-2">
+                
+                <div class="h-100 w-75 d-inline-block align-middle">
+                    <h5 class="mt-0 amore-font">@pizza.Name</h5>
+                    @pizza.Description
+                </div>
+                
+                <div class="h-100 w-24 d-inline-block text-center">
+                    <a asp-page="/Order/Index" asp-route-pizzaId="@pizza.Id" class="btn bg-amore-primary text-white" role="button">Bestellen</a>
+                </div>
+                
+            </div>
+        </div>
+    }
+    
+</section>

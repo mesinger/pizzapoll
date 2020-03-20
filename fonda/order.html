@@ -29,7 +29,7 @@
             <img src="img/pizzapane.png" class="mr-3 d-none d-md-block" alt="pizza-image">
             <div class="media-body h-100 pt-2">
                 <div class="h-100 w-100">
-                    <h5 class="mt-0">Deine Auswahl</h5>
+                    <h5 class="mt-0">Deine Pizza</h5>
                     <h4 class="amore-font">Pizza Pane</h4>
                 </div>
             </div>
@@ -37,48 +37,41 @@
 
         <section class="pizza-order">
 
-            <div class="d-block text-center mt-4">
-                Noch ein paar Goodies gefällig?<br />
-                <a data-toggle="collapse" href="#goodieForm" role="button" aria-expanded="false"
-                    aria-controls="goodieForm">
-                    <svg class="bi bi-chevron-down" width="32" height="32" viewBox="0 0 20 20" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M3.646 6.646a.5.5 0 01.708 0L10 12.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-            </div>
+            <div class="d-block mt-4">
+                <h4>Noch ein paar Goodies gefällig?</h4>
+                <p>
+                    Du kannst höchstens zwei zusätzliche Goodies wählen, und höchstens zwei Standardgoodies abwählen.
+                </p>
 
-            <div class="collapse" id="goodieForm">
-                <div class="goodie-form">
-                    <form class="pl-3 pb-4">
+                <form class="pb-4">
+
+                    <div class="mb-3 pl-3">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1">
                                 Knoblauch
                             </label>
                         </div>
+    
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
                             <label class="form-check-label" for="defaultCheck2">
                                 Integrale / Vollkorn
                             </label>
                         </div>
-                    </form>
-                </div>
-            </div>
+                    </div>                
 
-            <div>
-                <a class="btn bg-amore-primary text-white w-100" href="#" role="button">
-                    <svg class="bi bi-check" width="24" height="24" viewBox="0 0 20 20" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M15.854 5.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L8.5 12.293l6.646-6.647a.5.5 0 01.708 0z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    Bestellen
-                </a>
+                    <button type="submit" class="btn bg-amore-primary w-100 text-white">
+                        <svg class="bi bi-check" width="24" height="24" viewBox="0 0 20 20" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M15.854 5.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L8.5 12.293l6.646-6.647a.5.5 0 01.708 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Bestellen
+                    </button>
+
+                </form>
             </div>
         </section>
     </main>

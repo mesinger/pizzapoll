@@ -75,8 +75,6 @@ namespace App
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => endpoints.MapRazorPages());
-
-            app.UseStatusCodePages();
         }
     }
 }

@@ -6,15 +6,23 @@
     <title>Amore's Pizza Poll</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark">
-    <span class="navbar-brand mb-0 h1">Amore's Pizza Poll</span>
+
+<nav class="navbar navbar-dark bg-amore-primary">
+    <a href="/" class="navbar-brand mb-0 h1 amore-font">
+        Amore's Pizza Poll
+    </a>
 </nav>
+
 <main>
     @RenderBody()
 </main>
+
 </body>
 
 @RenderSection("Scripts", required: false)

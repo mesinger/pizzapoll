@@ -13,6 +13,9 @@ namespace Amore.Data.Models
         [BsonElement("name")]
         public string Name { get; set; }
 
+        [BsonElement("description")]
+        public string Description { get; set; }
+
         [BsonElement("price")]
         public decimal Price { get; set; }
 
@@ -21,11 +24,14 @@ namespace Amore.Data.Models
 
         [BsonElement("product_customize_id")]
         public string ProductCustomizeId { get; set; }
+        
+        [BsonElement("product_image_path")] 
+        public string ProductImagePath { get; set; }
 
         [BsonElement("default_goodies")]
-        public IList<string> DefaultGoodiesIds { get; set; }
+        public List<string> DefaultGoodiesIds { get; set; }
 
         [BsonElement("additional_goodies")]
-        public IList<string> AdditionalGoodiesIds { get; set; }
+        public List<string> AdditionalGoodiesIds { get; set; }
     }
 }
