@@ -17,6 +17,16 @@ namespace amore.domain.Site
         /// <summary>
         /// Puts an order into the cart on a pizza website
         /// </summary>
-        void PutOrder(string sessionId, IEnumerable<KeyValuePair<string, string>> orderData);
+        void PutOrder(IEnumerable<KeyValuePair<string, string>> orderData);
+
+        /// <summary>
+        /// Prepares an order for checkout
+        /// </summary>
+        void PrepareCheckout();
+
+        /// <summary>
+        /// Finishes an order and sends it to the pizza website
+        /// </summary>
+        void Checkout();
     }
 }

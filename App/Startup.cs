@@ -1,3 +1,4 @@
+using Amore.D.Dao;
 using Amore.Data.Dao;
 using Amore.Data.Models;
 using Amore.Domain.Context;

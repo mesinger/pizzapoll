@@ -18,9 +18,19 @@ namespace amore.domain.Site
             return await subject.GetSessionId();
         }
 
-        public void PutOrder(string sessionId, IEnumerable<KeyValuePair<string, string>> orderData)
+        public void PutOrder(IEnumerable<KeyValuePair<string, string>> orderData)
         {
-            subject.PutOrder(sessionId, orderData);
+            subject.PutOrder(orderData);
+        }
+
+        public void PrepareCheckout()
+        {
+            subject.PrepareCheckout();
+        }
+
+        public void Checkout()
+        {
+            subject.Checkout();
         }
     }
 }

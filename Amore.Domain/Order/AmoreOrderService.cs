@@ -34,7 +34,7 @@ namespace Amore.Domain.Order
 
                 goodies.ForEach(goodie => orderData.Add(KeyValuePair.Create($"product_customizations[{pizza.ProductCustomizeId}][]", goodie.OrderId.ToString())));
                 
-                _pizzaSiteProxy.PutOrder(_checkoutDataProvider.AmoreSessionId, orderData);
+                _pizzaSiteProxy.PutOrder(orderData);
             }
         }
 

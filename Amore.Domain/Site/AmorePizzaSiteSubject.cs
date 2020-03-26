@@ -41,7 +41,7 @@ namespace amore.domain.Site
             }
         }
 
-        public async void PutOrder(string sessionId, IEnumerable<KeyValuePair<string, string>> orderData)
+        public async void PutOrder(IEnumerable<KeyValuePair<string, string>> orderData)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace amore.domain.Site
                 using var client = new HttpClient(handler) {BaseAddress = baseAddress};
 
                 var content = new FormUrlEncodedContent(orderData);
-                cookieContainer.Add(baseAddress, new Cookie("_thatsamore_session", $"{sessionId}"));
+                cookieContainer.Add(baseAddress, new Cookie("_thatsamore_session", $"{_amoreCheckoutDataProvider.AmoreSessionId}"));
                 var result = await client.PostAsync(baseAddress, content);
 
                 if (!result.IsSuccessStatusCode)
@@ -62,6 +62,16 @@ namespace amore.domain.Site
             catch (HttpRequestException)
             {
             }
+        }
+
+        public void PrepareCheckout()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Checkout()
+        {
+            throw new NotImplementedException();
         }
 
         private static string ParseSessionIdFromResponse(HttpResponseMessage response)
