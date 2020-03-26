@@ -1,8 +1,7 @@
-﻿using System;
-using Amore.Domain.Context;
+﻿using Amore.Domain.Context;
 using Microsoft.Extensions.Logging;
 
-namespace amore.domain.Site
+namespace Amore.Domain.Site
 {
     public class PizzaSiteProxyFactory : IPizzaSiteProxyFactory
     {

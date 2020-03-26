@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Amore.Data.Models;
+using Amore.Domain.Data.Model;
 
 namespace Amore.Domain.Order
 {

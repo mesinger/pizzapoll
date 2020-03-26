@@ -2,9 +2,9 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Amore.Data.Models
+namespace Amore.Data.Model
 {
-    public class Pizza
+    public class MongoPizza
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

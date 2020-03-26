@@ -2,11 +2,14 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>Amore.D</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Amore.Domain.Data\Amore.Domain.Data.csproj" />
     </ItemGroup>
 
 </Project>

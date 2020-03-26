@@ -1,13 +1,13 @@
-﻿namespace Amore.Data.Models
+﻿namespace Amore.Data.Settings
 {
-    public class PizzasDatabaseSettings : IPizzasDatabaseSettings
+    public class MongoPizzaDatabaseSettings : IMongoPizzaDatabaseSettings
     {
         public string PizzasCollectionName { get; set; }
         public string ConnectionString { get; set; }
         public string DatabaseName { get; set; }
     }
 
-    public interface IPizzasDatabaseSettings
+    public interface IMongoPizzaDatabaseSettings
     {
         string PizzasCollectionName { get; }
         string ConnectionString { get; }

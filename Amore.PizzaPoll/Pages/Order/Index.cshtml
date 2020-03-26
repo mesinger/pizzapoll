@@ -1,5 +1,5 @@
 ﻿@page "{pizzaId}"
-@model App.Pages.Order.IndexOrderModel
+@model Amore.PizzaPoll.Pages.Order.IndexOrderModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
@@ -27,7 +27,7 @@
         <form class="pb-4" method="post">
 
             <div class="pl-3 mb-3">
-                <input asp-for="FormModel.pizzaId" value="@Model.Pizza.Id" hidden/>
+                <input asp-for="FormModel.PizzaId" value="@Model.Pizza.Id" hidden/>
                 @foreach (var goodie in Model.AdditionalGoodies)
                 {
                     <div class="form-check">

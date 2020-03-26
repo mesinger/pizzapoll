@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Amore.Data.Dao;
-using Amore.Data.Models;
 using Amore.Domain.Context;
+using Amore.Domain.Data.Dao;
+using Amore.Domain.Data.Model;
 using Amore.Domain.Order;
-using App.Models;
+using Amore.PizzaPoll.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace App.Pages.Order
+namespace Amore.PizzaPoll.Pages.Order
 {
     public class IndexOrderModel : PageModel
     {
@@ -45,7 +45,7 @@ namespace App.Pages.Order
                 return NotFound();
             }
 
-            FormModel = new GoodieFormModel {pizzaId = pizzaId};
+            FormModel = new GoodieFormModel {PizzaId = pizzaId};
 
             Pizza.DefaultGoodiesIds.ForEach(goodieId => FormModel.SelectedGoodies[goodieId] = true);
 
@@ -57,7 +57,7 @@ namespace App.Pages.Order
 
         public async Task<IActionResult> OnPost()
         {
-            var pizza = await _pizzaDao.GetById(FormModel.pizzaId);
+            var pizza = await _pizzaDao.GetById(FormModel.PizzaId);
 
             if (pizza == null)
             {

@@ -1,8 +1,8 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
-namespace Amore.Data.Models
+namespace Amore.Data.Model
 {
-    public class Goodie
+    public class MongoGoodie
     {
         [BsonId]
         public string Id { get; set; }

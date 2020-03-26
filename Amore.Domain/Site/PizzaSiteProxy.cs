@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace amore.domain.Site
+namespace Amore.Domain.Site
 {
     public class PizzaSiteProxy : IPizzaSiteProxy
     {
-
         public PizzaSiteProxy(IPizzaSiteProxyFactory pizzaSiteProxyFactory)
         {
             subject = pizzaSiteProxyFactory.Create(PizzaPlace.AMORE);

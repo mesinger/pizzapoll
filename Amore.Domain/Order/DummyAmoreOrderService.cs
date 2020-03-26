@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Amore.Data.Models;
 using Amore.Domain.Context;
+using Amore.Domain.Data.Model;
 using Microsoft.Extensions.Logging;
 
 namespace Amore.Domain.Order

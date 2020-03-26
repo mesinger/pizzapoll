@@ -1,4 +1,4 @@
-﻿namespace amore.domain.Site
+﻿namespace Amore.Domain.Site
 {
     public interface IPizzaSiteProxyFactory
     {

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Amore.Data.Dao;
-using Amore.Data.Models;
+using Amore.Domain.Data.Dao;
+using Amore.Domain.Data.Model;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace App.Pages
+namespace Amore.PizzaPoll.Pages
 {
     public class IndexModel : PageModel
     {

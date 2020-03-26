@@ -1,10 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{73292B6E-228C-4F54-9E82-24C047B01DFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amore.PizzaPoll", "Amore.PizzaPoll\Amore.PizzaPoll.csproj", "{884E52BF-4DCF-49CE-AFC2-BC2F43874C32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amore.Data", "Amore.Data\Amore.Data.csproj", "{C2FF13C6-482D-4ECE-9828-FF61458A2AF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amore.Data", "Amore.Data\Amore.Data.csproj", "{B7D8F2A7-EA68-4C01-9DF2-178780FB2CEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amore.Domain", "Amore.Domain\Amore.Domain.csproj", "{1E5AEFB1-F1F1-41BC-B695-7022F2AD985D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amore.Domain", "Amore.Domain\Amore.Domain.csproj", "{591A32BA-2D66-4463-A954-8774B97DF72A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amore.Domain.Data", "Amore.Domain.Data\Amore.Domain.Data.csproj", "{CDA295B0-1747-4AEE-8067-C01A84F1A08A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,17 +14,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{73292B6E-228C-4F54-9E82-24C047B01DFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73292B6E-228C-4F54-9E82-24C047B01DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73292B6E-228C-4F54-9E82-24C047B01DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73292B6E-228C-4F54-9E82-24C047B01DFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2FF13C6-482D-4ECE-9828-FF61458A2AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2FF13C6-482D-4ECE-9828-FF61458A2AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2FF13C6-482D-4ECE-9828-FF61458A2AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2FF13C6-482D-4ECE-9828-FF61458A2AF9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E5AEFB1-F1F1-41BC-B695-7022F2AD985D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E5AEFB1-F1F1-41BC-B695-7022F2AD985D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E5AEFB1-F1F1-41BC-B695-7022F2AD985D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E5AEFB1-F1F1-41BC-B695-7022F2AD985D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{884E52BF-4DCF-49CE-AFC2-BC2F43874C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{884E52BF-4DCF-49CE-AFC2-BC2F43874C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{884E52BF-4DCF-49CE-AFC2-BC2F43874C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{884E52BF-4DCF-49CE-AFC2-BC2F43874C32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7D8F2A7-EA68-4C01-9DF2-178780FB2CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D8F2A7-EA68-4C01-9DF2-178780FB2CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D8F2A7-EA68-4C01-9DF2-178780FB2CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D8F2A7-EA68-4C01-9DF2-178780FB2CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{591A32BA-2D66-4463-A954-8774B97DF72A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{591A32BA-2D66-4463-A954-8774B97DF72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{591A32BA-2D66-4463-A954-8774B97DF72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{591A32BA-2D66-4463-A954-8774B97DF72A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDA295B0-1747-4AEE-8067-C01A84F1A08A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDA295B0-1747-4AEE-8067-C01A84F1A08A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDA295B0-1747-4AEE-8067-C01A84F1A08A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDA295B0-1747-4AEE-8067-C01A84F1A08A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

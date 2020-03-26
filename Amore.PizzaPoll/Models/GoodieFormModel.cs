@@ -1,14 +1,10 @@
-﻿﻿using System;
-using System.Collections.Generic;
- using System.ComponentModel.DataAnnotations;
- using System.Linq;
- using Amore.Data.Models;
+﻿using System.Collections.Generic;
 
- namespace App.Models
+namespace Amore.PizzaPoll.Models
 {
     public class GoodieFormModel
     {
-        public string pizzaId { get; set; }
+        public string PizzaId { get; set; }
         public Dictionary<string, bool> SelectedGoodies { get; } = new Dictionary<string, bool>() // goodieId -> isDefault, isSelected
         {
             {"anchovies", false},

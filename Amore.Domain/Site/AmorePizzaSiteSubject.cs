@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Amore.Domain.Context;
 using Microsoft.Extensions.Logging;
 
-namespace amore.domain.Site
+namespace Amore.Domain.Site
 {
     internal class AmorePizzaSiteSubject : IPizzaSiteProxy
     {

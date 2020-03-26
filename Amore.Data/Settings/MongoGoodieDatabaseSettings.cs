@@ -1,13 +1,13 @@
-﻿namespace Amore.Data.Models
+﻿namespace Amore.Data.Settings
 {
-    public class GoodiesDatabaseSettings : IGoodiesDatabaseSettings
+    public class MongoGoodieDatabaseSettings : IMongoGoodieDatabaseSettings
     {
         public string GoodiesCollectionName { get; set; }
         public string ConnectionString { get; set; }
         public string DatabaseName { get; set; }
     }
 
-    public interface IGoodiesDatabaseSettings
+    public interface IMongoGoodieDatabaseSettings
     {
         string GoodiesCollectionName { get; }
         string ConnectionString { get; }

@@ -4,7 +4,7 @@ using Amore.Domain.Order;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace App.Pages.Admin
+namespace Amore.PizzaPoll.Pages.Admin
 {
     public class AdminIndexModel : PageModel
     {

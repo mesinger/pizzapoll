@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Amore.Data.Models;
+using Amore.Domain.Data.Model;
 
-namespace Amore.Data.Dao
+namespace Amore.Domain.Data.Dao
 {
     /// <summary>
     /// Provides access to pizza items

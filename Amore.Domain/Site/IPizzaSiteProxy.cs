@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace amore.domain.Site
+namespace Amore.Domain.Site
 {
     /// <summary>
     /// Access to a real pizza website

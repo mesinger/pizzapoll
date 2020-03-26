@@ -1,9 +1,9 @@
-using Amore.D.Dao;
 using Amore.Data.Dao;
-using Amore.Data.Models;
+using Amore.Data.Settings;
 using Amore.Domain.Context;
+using Amore.Domain.Data.Dao;
 using Amore.Domain.Order;
-using amore.domain.Site;
+using Amore.Domain.Site;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
-namespace App
+namespace Amore.PizzaPoll
 {
     public class Startup
     {
@@ -31,21 +31,21 @@ namespace App
             services.Configure<RouteOptions>(options => { options.LowercaseUrls = true; });
             
             // app settings
-            services.Configure<GoodiesDatabaseSettings>(Configuration.GetSection(nameof(GoodiesDatabaseSettings)));
-            services.AddSingleton<IGoodiesDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<GoodiesDatabaseSettings>>().Value);
+            services.Configure<MongoGoodieDatabaseSettings>(Configuration.GetSection(nameof(MongoGoodieDatabaseSettings)));
+            services.AddSingleton<IMongoGoodieDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<MongoGoodieDatabaseSettings>>().Value);
             
-            services.Configure<PizzasDatabaseSettings>(Configuration.GetSection(nameof(PizzasDatabaseSettings)));
-            services.AddSingleton<IPizzasDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<PizzasDatabaseSettings>>().Value);
+            services.Configure<MongoPizzaDatabaseSettings>(Configuration.GetSection(nameof(MongoPizzaDatabaseSettings)));
+            services.AddSingleton<IMongoPizzaDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<MongoPizzaDatabaseSettings>>().Value);
             
             services.Configure<AmoreCheckoutDataProvider>(Configuration.GetSection(nameof(AmoreCheckoutDataProvider)));
             services.AddSingleton<IAmoreCheckoutDataProvider>(sp =>
                 sp.GetRequiredService<IOptions<AmoreCheckoutDataProvider>>().Value);
 
             // daos and services
-            services.AddSingleton<IGoodieDao, GoodieDao>();
-            services.AddSingleton<IPizzaDao, PizzaDao>();
+            services.AddSingleton<IGoodieDao, MongoGoodieDao>();
+            services.AddSingleton<IPizzaDao, MongoPizzaDao>();
 
             services.AddSingleton<IAmoreOrderService, DummyAmoreOrderService>();
 
