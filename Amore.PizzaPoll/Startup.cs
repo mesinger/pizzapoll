@@ -39,6 +39,10 @@ namespace Amore.PizzaPoll
             services.AddSingleton<IMongoPizzaDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<MongoPizzaDatabaseSettings>>().Value);
             
+            services.Configure<MongoPizzaOrderDatabaseSettings>(Configuration.GetSection(nameof(MongoPizzaOrderDatabaseSettings)));
+            services.AddSingleton<IMongoPizzaOrderDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<MongoPizzaOrderDatabaseSettings>>().Value);
+            
             services.Configure<AmoreCheckoutDataProvider>(Configuration.GetSection(nameof(AmoreCheckoutDataProvider)));
             services.AddSingleton<IAmoreCheckoutDataProvider>(sp =>
                 sp.GetRequiredService<IOptions<AmoreCheckoutDataProvider>>().Value);
@@ -46,6 +50,7 @@ namespace Amore.PizzaPoll
             // daos and services
             services.AddSingleton<IGoodieDao, MongoGoodieDao>();
             services.AddSingleton<IPizzaDao, MongoPizzaDao>();
+            services.AddSingleton<IOrderDao, MongoOrderDao>();
 
             services.AddSingleton<IAmoreOrderService, DummyAmoreOrderService>();
 

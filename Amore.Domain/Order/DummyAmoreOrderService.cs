@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Amore.Domain.Context;
+using Amore.Domain.Data.Dao;
 using Amore.Domain.Data.Model;
 using Microsoft.Extensions.Logging;
 
@@ -10,16 +12,19 @@ namespace Amore.Domain.Order
     {
         private readonly ILogger<DummyAmoreOrderService> _logger;
         private readonly IAmoreCheckoutDataProvider _checkoutDataProvider;
+        private readonly IOrderDao _orderDao;
 
-        public DummyAmoreOrderService(ILogger<DummyAmoreOrderService> logger, IAmoreCheckoutDataProvider checkoutDataProvider)
+        public DummyAmoreOrderService(ILogger<DummyAmoreOrderService> logger, IAmoreCheckoutDataProvider checkoutDataProvider, IOrderDao orderDao)
         {
             _logger = logger;
             _checkoutDataProvider = checkoutDataProvider;
-            _checkoutDataProvider.AmoreSessionId = "mockedsessionid";
+            _orderDao = orderDao;
+            _checkoutDataProvider.AmoreSessionId = Guid.NewGuid().ToString();
         }
 
         public void Order(Pizza pizza, List<Goodie> goodies)
         {
+            _orderDao.AddPizzaOrder(new PizzaOrder(pizza, goodies, _checkoutDataProvider.AmoreSessionId));
             _logger.LogInformation($"Put order: {pizza.Name} with {goodies.Count} goodies");
         }
 

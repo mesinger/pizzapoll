@@ -18,5 +18,11 @@ namespace Amore.Data
             new Goodie(goodie.Id, goodie.Name, goodie.OrderId, goodie.Price);
         public static List<Goodie> Map(this IEnumerable<MongoGoodie> goodies) =>
             goodies.Select(goodie => goodie.Map()).ToList();
+        
+        public static MongoPizzaOrder Map(this PizzaOrder order) => new MongoPizzaOrder
+        {
+            OrderId = order.OrderId, ProductName = order.Pizza.Name,
+            ProductExtras = string.Join(", ", order.Goodies.Select(g => g.Name))
+        };
     }
 }
