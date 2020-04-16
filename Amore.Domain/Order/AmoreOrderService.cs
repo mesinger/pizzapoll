@@ -36,6 +36,11 @@ namespace Amore.Domain.Order
             }
         }
 
+        public Task<CompleteOrderInfo> GetOrderInfo()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public async Task<bool> OpenSession()
         {
             var sessionId = await _pizzaSiteProxy.GetSessionId();

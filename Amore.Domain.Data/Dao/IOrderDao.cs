@@ -1,4 +1,6 @@
-﻿using Amore.Domain.Data.Model;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Amore.Domain.Data.Model;
 
 namespace Amore.Domain.Data.Dao
 {
@@ -12,5 +14,12 @@ namespace Amore.Domain.Data.Dao
         /// </summary>
         /// <param name="order"></param>
         void AddPizzaOrder(PizzaOrder order);
+
+        /// <summary>
+        /// Retrieve a order by a given order id
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
+        Task<CompleteOrderInfo> GetOrderByOrderId(string orderId);
     }
 }

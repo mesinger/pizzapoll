@@ -17,6 +17,12 @@ namespace Amore.Domain.Order
         void Order(Pizza pizza, List<Goodie> goodies);
 
         /// <summary>
+        /// Retrieves info about the current order session
+        /// </summary>
+        /// <returns></returns>
+        Task<CompleteOrderInfo> GetOrderInfo();
+
+        /// <summary>
         /// Opens a new order session
         /// </summary>
         /// <returns>if a new session has been opened</returns>

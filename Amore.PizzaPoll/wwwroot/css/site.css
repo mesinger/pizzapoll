@@ -3,7 +3,13 @@
   margin: 0px;
 }
 
+body {
+
+}
+
 main {
+  margin-left: 10px;
+  margin-right: 10px;
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -24,10 +30,6 @@ main {
   font-family: 'Lobster', cursive;
 }
 
-.pizza-list{
-  
-}
-
 .pizza-item img {
   width: 250px;
 }
@@ -37,14 +39,14 @@ main {
   margin-bottom: 15px;
 }
 
-.pizza-order {
-  
-}
-
 .w-24 {
   width: 24%;
 }
 
 .w-49 {
   width: 49%;
+}
+
+.text-red {
+  color: red;
 }

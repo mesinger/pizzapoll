@@ -17,5 +17,8 @@ namespace Amore.Data.Model
         
         [BsonElement("product-extras")]
         public string ProductExtras { get; set; }
+        
+        [BsonElement("subtotal")] 
+        public double SubTotal { get; set; }
     }
 }

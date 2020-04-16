@@ -28,6 +28,11 @@ namespace Amore.Domain.Order
             _logger.LogInformation($"Put order: {pizza.Name} with {goodies.Count} goodies");
         }
 
+        public Task<CompleteOrderInfo> GetOrderInfo()
+        {
+            return _orderDao.GetOrderByOrderId(_checkoutDataProvider.AmoreSessionId);
+        }
+
         public Task<bool> OpenSession()
         {
             _logger.LogInformation("Opening new amore order session");

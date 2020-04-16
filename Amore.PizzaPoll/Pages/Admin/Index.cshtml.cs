@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Amore.Domain.Context;
+using Amore.Domain.Data.Model;
 using Amore.Domain.Order;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -19,11 +20,13 @@ namespace Amore.PizzaPoll.Pages.Admin
 
         public bool HasCurrentSession { get; private set; }
         public string CurrentSessionId { get; private set; }
+        public CompleteOrderInfo OrderInfo { get; private set; }
 
-        public void OnGet()
+        public async void OnGet()
         {
             HasCurrentSession = _checkoutDataProvider.HasCurrentSession();
             CurrentSessionId = _checkoutDataProvider.AmoreSessionId;
+            OrderInfo = await _orderService.GetOrderInfo();
         }
 
         public async Task<IActionResult> OnGetOpenSession()

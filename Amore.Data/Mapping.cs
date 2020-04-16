@@ -22,7 +22,8 @@ namespace Amore.Data
         public static MongoPizzaOrder Map(this PizzaOrder order) => new MongoPizzaOrder
         {
             OrderId = order.OrderId, ProductName = order.Pizza.Name,
-            ProductExtras = string.Join(", ", order.Goodies.Select(g => g.Name))
+            ProductExtras = string.Join(", ", order.Goodies.Select(g => g.Name)),
+            SubTotal = (double) (order.Pizza.Price + order.Goodies.Select(g => g.Price).Sum())
         };
     }
 }
