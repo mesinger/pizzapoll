@@ -15,9 +15,41 @@
     {
         <div>
             <h3>
+                Userdata
+            </h3>
+            <div class="shadow p-2 mb-5 bg-amore-secondary rounded">
+                <p>
+                    <strong>Firstname</strong>: @Model.CheckoutDataProvider.FirstName
+                </p>
+                <p>
+                    <strong>Lastname</strong>: @Model.CheckoutDataProvider.LastName
+                </p>
+                <p>
+                    <strong>Address</strong>: @Model.CheckoutDataProvider.Address
+                </p>
+                <p>
+                    <strong>Housenumber</strong>: @Model.CheckoutDataProvider.HouseNumber
+                </p>
+                <p>
+                    <strong>Floor</strong>: @Model.CheckoutDataProvider.Floor
+                </p>
+                <p>
+                    <strong>Door</strong>: @Model.CheckoutDataProvider.Door
+                </p>
+                <p>
+                    <strong>City</strong>: @Model.CheckoutDataProvider.City
+                </p>
+                <p>
+                    <strong>Zip</strong>: @Model.CheckoutDataProvider.Zip
+                </p>
+                <p>
+                    <strong>Specialinstructions</strong>: @Model.CheckoutDataProvider.SpecialInstructions
+                </p>
+            </div>
+
+            <h3>
                 Current order
             </h3>
-            
             <div class="shadow p-2 mb-5 bg-amore-secondary rounded">
                 <h5>
                     Subtotal: € <strong>@Model.OrderInfo.SubTotal</strong> ,-
@@ -25,13 +57,13 @@
                 <p>
                     Amore Order Session ID: <strong>@Model.CurrentSessionId</strong>
                 </p>
-                
+
                 <p class="text-red">
                     <a asp-page-handler="closesession" class="btn bg-amore-primary text-white mb-1">Checkout</a><br>
                     There is no a guarantee for the correctness and completeness of this order. Prices may vary or the order process might fail completely.
                 </p>
             </div>
-            
+
             <div>
                 <h3>
                     Cart
@@ -63,7 +95,7 @@
         <h3>
             Currently no order
         </h3>
-    
+
         <p class="text-red">
             <a asp-page-handler="opensession">Open order</a>
         </p>

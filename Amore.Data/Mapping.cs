@@ -23,7 +23,7 @@ namespace Amore.Data
         {
             OrderId = order.OrderId, ProductName = order.Pizza.Name,
             ProductExtras = string.Join(", ", order.Goodies.Select(g => g.Name)),
-            SubTotal = (double) (order.Pizza.Price + order.Goodies.Select(g => g.Price).Sum())
+            SubTotal = (double) (order.Pizza.Price + order.Goodies.Where(g => !order.Pizza.DefaultGoodiesIds.Contains(g.Id)).Select(g => g.Price).Sum())
         };
     }
 }

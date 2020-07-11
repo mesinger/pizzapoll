@@ -22,10 +22,16 @@ namespace Amore.Domain.Order
             _checkoutDataProvider.AmoreSessionId = Guid.NewGuid().ToString();
         }
 
-        public void Order(Pizza pizza, List<Goodie> goodies)
+        public void PutOrder(Pizza pizza, List<Goodie> goodies)
         {
             _orderDao.AddPizzaOrder(new PizzaOrder(pizza, goodies, _checkoutDataProvider.AmoreSessionId));
             _logger.LogInformation($"Put order: {pizza.Name} with {goodies.Count} goodies");
+        }
+
+        public async void Checkout()
+        {
+            var currentOrder = await GetOrderInfo();
+            _logger.LogInformation($"Checkout: Subtotal = {currentOrder.SubTotal}");
         }
 
         public Task<CompleteOrderInfo> GetOrderInfo()
@@ -36,7 +42,6 @@ namespace Amore.Domain.Order
         public Task<bool> OpenSession()
         {
             _logger.LogInformation("Opening new amore order session");
-            _checkoutDataProvider.AmoreSessionId = "mockedsessionid";
             return null;
         }
 

@@ -43,7 +43,7 @@ namespace Amore.PizzaPoll
             services.AddSingleton<IMongoPizzaOrderDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<MongoPizzaOrderDatabaseSettings>>().Value);
             
-            services.Configure<AmoreCheckoutDataProvider>(Configuration.GetSection(nameof(AmoreCheckoutDataProvider)));
+            services.Configure<AmoreCheckoutDataProvider>(Configuration.GetSection("AmoreCheckoutDataProvider"));
             services.AddSingleton<IAmoreCheckoutDataProvider>(sp =>
                 sp.GetRequiredService<IOptions<AmoreCheckoutDataProvider>>().Value);
 

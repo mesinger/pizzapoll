@@ -70,7 +70,7 @@ namespace Amore.PizzaPoll.Pages.Order
 
             var goodies = await _goodieDao.GetAllWithId(selectedGoodieIds.ToArray());
             
-            _amoreOrderService.Order(pizza, goodies);
+            _amoreOrderService.PutOrder(pizza, goodies);
 
             return RedirectToPage("../Index");
         }

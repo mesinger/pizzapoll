@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Amore.Domain.Context;
+using Amore.Domain.Data.Dao;
 using Amore.Domain.Data.Model;
 using Amore.Domain.Site;
 using Microsoft.Extensions.Logging;
@@ -13,15 +14,18 @@ namespace Amore.Domain.Order
         private readonly IAmoreCheckoutDataProvider _checkoutDataProvider;
         private readonly ILogger<AmoreOrderService> _logger;
         private readonly IPizzaSiteProxy _pizzaSiteProxy;
+        private readonly IOrderDao _orderDao;
+        private IAmoreOrderService _amoreOrderServiceImplementation;
 
-        public AmoreOrderService(IAmoreCheckoutDataProvider checkoutDataProvider, ILogger<AmoreOrderService> logger, IPizzaSiteProxy pizzaSiteProxy)
+        public AmoreOrderService(IAmoreCheckoutDataProvider checkoutDataProvider, ILogger<AmoreOrderService> logger, IPizzaSiteProxy pizzaSiteProxy, IOrderDao orderDao)
         {
             _checkoutDataProvider = checkoutDataProvider;
             _logger = logger;
             _pizzaSiteProxy = pizzaSiteProxy;
+            _orderDao = orderDao;
         }
 
-        public void Order(Pizza pizza, List<Goodie> goodies)
+        public void PutOrder(Pizza pizza, List<Goodie> goodies)
         {
             if (_checkoutDataProvider.HasCurrentSession())
             {
@@ -36,9 +40,14 @@ namespace Amore.Domain.Order
             }
         }
 
-        public Task<CompleteOrderInfo> GetOrderInfo()
+        public void Checkout()
         {
             throw new System.NotImplementedException();
+        }
+
+        public Task<CompleteOrderInfo> GetOrderInfo()
+        {
+            return _orderDao.GetOrderByOrderId(_checkoutDataProvider.AmoreSessionId);
         }
 
         public async Task<bool> OpenSession()

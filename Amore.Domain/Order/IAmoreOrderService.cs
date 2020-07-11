@@ -14,7 +14,12 @@ namespace Amore.Domain.Order
         /// </summary>
         /// <param name="pizza"></param>
         /// <param name="goodies"></param>
-        void Order(Pizza pizza, List<Goodie> goodies);
+        void PutOrder(Pizza pizza, List<Goodie> goodies);
+
+        /// <summary>
+        /// Finishes the current order
+        /// </summary>
+        void Checkout();
 
         /// <summary>
         /// Retrieves info about the current order session
