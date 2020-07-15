@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Amore.Domain.Site
+namespace Amore.Domain.Data.Provider
 {
     /// <summary>
-    /// Access to a real pizza website
+    /// Provides access to www.thatsamore.at
     /// </summary>
-    public interface IPizzaSiteProxy
+    public interface IThatsAmoreWebSiteAccessProvider
     {
         /// <summary>
         /// Returns a session id from a pizza site
@@ -23,10 +23,5 @@ namespace Amore.Domain.Site
         /// Prepares an order for checkout
         /// </summary>
         void PrepareCheckout();
-
-        /// <summary>
-        /// Finishes an order and sends it to the pizza website
-        /// </summary>
-        void Checkout();
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Amore.Domain.Context;
+using Amore.Data.Website.Context;
 using Amore.Domain.Data.Dao;
 using Amore.Domain.Data.Model;
+using Amore.Domain.Data.Provider;
 using Amore.Domain.Order;
 using Amore.PizzaPoll.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -17,13 +18,15 @@ namespace Amore.PizzaPoll.Pages.Order
         private readonly IAmoreCheckoutDataProvider _checkoutDataProvider;
         private readonly IGoodieDao _goodieDao;
         private readonly IAmoreOrderService _amoreOrderService;
+        private readonly ISessionProvider _sessionProvider;
 
-        public IndexOrderModel(IPizzaDao pizzaDao, IAmoreCheckoutDataProvider checkoutDataProvider, IGoodieDao goodieDao, IAmoreOrderService amoreOrderService)
+        public IndexOrderModel(IPizzaDao pizzaDao, IAmoreCheckoutDataProvider checkoutDataProvider, IGoodieDao goodieDao, IAmoreOrderService amoreOrderService, ISessionProvider sessionProvider)
         {
             _pizzaDao = pizzaDao;
             _checkoutDataProvider = checkoutDataProvider;
             _goodieDao = goodieDao;
             _amoreOrderService = amoreOrderService;
+            _sessionProvider = sessionProvider;
         }
 
         public Pizza Pizza { get; private set; }
@@ -33,7 +36,7 @@ namespace Amore.PizzaPoll.Pages.Order
 
         public async Task<IActionResult> OnGet(string pizzaId)
         {
-            if (!_checkoutDataProvider.HasCurrentSession())
+            if (!_sessionProvider.HasCurrentSession())
             {
                 return RedirectToPage("../Index");
             }
@@ -47,7 +50,7 @@ namespace Amore.PizzaPoll.Pages.Order
 
             FormModel = new GoodieFormModel {PizzaId = pizzaId};
 
-            Pizza.DefaultGoodiesIds.ForEach(goodieId => FormModel.SelectedGoodies[goodieId] = true);
+            (Pizza.DefaultGoodiesIds as List<string>)?.ForEach(goodieId => FormModel.SelectedGoodies[goodieId] = true);
 
             AdditionalGoodies = await _goodieDao.GetAllWithId(Pizza.AdditionalGoodiesIds.ToArray());
 

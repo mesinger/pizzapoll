@@ -1,58 +1,59 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using Amore.Domain.Context;
 using Amore.Domain.Data.Dao;
 using Amore.Domain.Data.Model;
-using Amore.Domain.Site;
+using Amore.Domain.Data.Provider;
 using Microsoft.Extensions.Logging;
 
 namespace Amore.Domain.Order
 {
     public class AmoreOrderService : IAmoreOrderService
     {
-        private readonly IAmoreCheckoutDataProvider _checkoutDataProvider;
+        private readonly ISessionProvider _sessionProvider;
         private readonly ILogger<AmoreOrderService> _logger;
-        private readonly IPizzaSiteProxy _pizzaSiteProxy;
         private readonly IOrderDao _orderDao;
-        private IAmoreOrderService _amoreOrderServiceImplementation;
+        private readonly IThatsAmoreWebSiteAccessProvider _webSiteAccessProvider;
 
-        public AmoreOrderService(IAmoreCheckoutDataProvider checkoutDataProvider, ILogger<AmoreOrderService> logger, IPizzaSiteProxy pizzaSiteProxy, IOrderDao orderDao)
+        public AmoreOrderService(ISessionProvider sessionProvider, ILogger<AmoreOrderService> logger, IOrderDao orderDao, IThatsAmoreWebSiteAccessProvider webSiteAccessProvider)
         {
-            _checkoutDataProvider = checkoutDataProvider;
+            _sessionProvider = sessionProvider;
             _logger = logger;
-            _pizzaSiteProxy = pizzaSiteProxy;
             _orderDao = orderDao;
+            _webSiteAccessProvider = webSiteAccessProvider;
         }
 
-        public void PutOrder(Pizza pizza, List<Goodie> goodies)
+        public void PutOrder(Pizza pizza, IEnumerable<Goodie> goodies)
         {
-            if (_checkoutDataProvider.HasCurrentSession())
+            if (_sessionProvider.HasCurrentSession())
             {
                 var orderData = new List<KeyValuePair<string, string>>
                 {
                     KeyValuePair.Create($"variants[{pizza.ProductOrderId}]", "1")
                 };
 
-                goodies.ForEach(goodie => orderData.Add(KeyValuePair.Create($"product_customizations[{pizza.ProductCustomizeId}][]", goodie.OrderId.ToString())));
+                goodies.ToList().ForEach(goodie => orderData.Add(KeyValuePair.Create($"product_customizations[{pizza.ProductCustomizeId}][]", goodie.OrderId.ToString())));
 
-                _pizzaSiteProxy.PutOrder(orderData);
+                _webSiteAccessProvider.PutOrder(orderData);
             }
         }
 
         public void Checkout()
         {
-            throw new System.NotImplementedException();
+            if (_sessionProvider.HasCurrentSession())
+            {
+                
+            }
         }
 
         public Task<CompleteOrderInfo> GetOrderInfo()
         {
-            return _orderDao.GetOrderByOrderId(_checkoutDataProvider.AmoreSessionId);
+            return _orderDao.GetOrderByOrderId(_sessionProvider.GetCurrentSession());
         }
 
         public async Task<bool> OpenSession()
         {
-            var sessionId = await _pizzaSiteProxy.GetSessionId();
+            var sessionId = await _webSiteAccessProvider.GetSessionId();
 
             if (string.IsNullOrWhiteSpace(sessionId))
             {
@@ -60,13 +61,13 @@ namespace Amore.Domain.Order
                 return false;
             }
 
-            _checkoutDataProvider.AmoreSessionId = sessionId;
+            _sessionProvider.UpdateCurrentSession(sessionId);
             return true;
         }
 
         public void CloseSession()
         {
-            _checkoutDataProvider.AmoreSessionId = string.Empty;
+            _sessionProvider.UpdateCurrentSession(string.Empty);
         }
     }
 } 

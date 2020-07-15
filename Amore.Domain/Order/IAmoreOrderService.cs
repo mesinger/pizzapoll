@@ -14,7 +14,7 @@ namespace Amore.Domain.Order
         /// </summary>
         /// <param name="pizza"></param>
         /// <param name="goodies"></param>
-        void PutOrder(Pizza pizza, List<Goodie> goodies);
+        void PutOrder(Pizza pizza, IEnumerable<Goodie> goodies);
 
         /// <summary>
         /// Finishes the current order

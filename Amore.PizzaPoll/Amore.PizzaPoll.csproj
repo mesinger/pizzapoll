@@ -5,9 +5,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Amore.Data\Amore.Data.csproj" />
+      <ProjectReference Include="..\Amore.Data.Local\Amore.Data.Local.csproj" />
+      <ProjectReference Include="..\Amore.Data.Website\Amore.Data.Website.csproj" />
       <ProjectReference Include="..\Amore.Domain.Data\Amore.Domain.Data.csproj" />
       <ProjectReference Include="..\Amore.Domain\Amore.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="data\goodie.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
 

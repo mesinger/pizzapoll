@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Amore.Domain.Context;
+using Amore.Data.Website.Context;
 using Amore.Domain.Data.Model;
+using Amore.Domain.Data.Provider;
 using Amore.Domain.Order;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,10 +11,12 @@ namespace Amore.PizzaPoll.Pages.Admin
     public class AdminIndexModel : PageModel
     {
         private readonly IAmoreOrderService _orderService;
+        private readonly ISessionProvider _sessionProvider;
 
-        public AdminIndexModel(IAmoreOrderService orderService, IAmoreCheckoutDataProvider checkoutDataProvider)
+        public AdminIndexModel(IAmoreOrderService orderService, ISessionProvider sessionProvider, IAmoreCheckoutDataProvider checkoutDataProvider)
         {
             _orderService = orderService;
+            _sessionProvider = sessionProvider;
             CheckoutDataProvider = checkoutDataProvider;
         }
 
@@ -24,14 +27,14 @@ namespace Amore.PizzaPoll.Pages.Admin
 
         public async void OnGet()
         {
-            HasCurrentSession = CheckoutDataProvider.HasCurrentSession();
-            CurrentSessionId = CheckoutDataProvider.AmoreSessionId;
+            HasCurrentSession = _sessionProvider.HasCurrentSession();
+            CurrentSessionId = _sessionProvider.GetCurrentSession();
             OrderInfo = await _orderService.GetOrderInfo();
         }
 
         public async Task<IActionResult> OnGetOpenSession()
         {
-            if (!CheckoutDataProvider.HasCurrentSession())
+            if (!_sessionProvider.HasCurrentSession())
             {
                 await _orderService.OpenSession();
             }
@@ -41,6 +44,12 @@ namespace Amore.PizzaPoll.Pages.Admin
 
         public IActionResult OnGetCloseSession()
         {
+            if (_sessionProvider.HasCurrentSession())
+            {
+                _orderService.Checkout();
+                _sessionProvider.ReleaseCurrentSession();
+            }
+
             return RedirectToPage("Index");
         }
     }

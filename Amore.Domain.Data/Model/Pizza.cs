@@ -4,7 +4,7 @@ namespace Amore.Domain.Data.Model
 {
     public class Pizza
     {
-        public Pizza(string id, string name, string description, decimal price, string productOrderId, string productCustomizeId, string productImagePath, List<string> defaultGoodiesIds, List<string> additionalGoodiesIds)
+        public Pizza(string id, string name, string description, decimal price, string productOrderId, string productCustomizeId, string productImagePath, IEnumerable<string> defaultGoodiesIds, IEnumerable<string> additionalGoodiesIds)
         {
             Id = id;
             Name = name;
@@ -31,8 +31,8 @@ namespace Amore.Domain.Data.Model
         
         public string ProductImagePath { get; }
 
-        public List<string> DefaultGoodiesIds { get; }
+        public IEnumerable<string> DefaultGoodiesIds { get; }
 
-        public List<string> AdditionalGoodiesIds { get; }
+        public IEnumerable<string> AdditionalGoodiesIds { get; }
     }
 }

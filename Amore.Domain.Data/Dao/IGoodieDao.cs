@@ -13,13 +13,13 @@ namespace Amore.Domain.Data.Dao
         /// Returns all available pizza goodies
         /// </summary>
         /// <returns></returns>
-        Task<List<Goodie>> GetAll();
+        Task<IEnumerable<Goodie>> GetAll();
 
         /// <summary>
         /// Returns a goodie by given id
         /// </summary>
         /// <returns></returns>
-        Task<Goodie> GetById(string id);
+        Task<Goodie?> GetById(string id);
 
         /// <summary>
         /// Returns a goodie with a given name
@@ -33,6 +33,6 @@ namespace Amore.Domain.Data.Dao
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
-        Task<List<Goodie>> GetAllWithId(params string[] ids);
+        Task<IEnumerable<Goodie>> GetAllWithId(params string[] ids);
     }
 }

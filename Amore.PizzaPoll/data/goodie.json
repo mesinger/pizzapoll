@@ -1,0 +1,158 @@
+﻿[
+  {
+    "id": "tomatosauce",
+    "name": "Tomatensauce",
+    "price": 1.0,
+    "orderid": 2
+  },
+  {
+    "id": "garlic",
+    "name": "Knoblauch",
+    "price": 0.5,
+    "orderid": 3
+  },
+  {
+    "id": "oregano",
+    "name": "Oregano",
+    "price": 0.0,
+    "orderid": 4
+  },
+  {
+    "id": "oliveoil",
+    "name": "Olivenöl",
+    "price": 0.0,
+    "orderid": 5
+  },
+  {
+    "id": "artichokes",
+    "name": "Artischoken",
+    "price": 1.5,
+    "orderid": 18
+  },
+  {
+    "id": "mushrooms",
+    "name": "Champignon",
+    "price": 1.5,
+    "orderid": 12
+  },
+  {
+    "id": "aubergine",
+    "name": "Melanzane",
+    "price": 2.0,
+    "orderid": 23
+  },
+  {
+    "id": "parmesan",
+    "name": "Parmesan",
+    "price": 1.0,
+    "orderid": 20
+  },
+  {
+    "id": "rucola",
+    "name": "Rucola",
+    "price": 2.0,
+    "orderid": 10
+  },
+  {
+    "id": "cocktailtomatoes",
+    "name": "frische Cocktailtomaten",
+    "price": 2.0,
+    "orderid": 26
+  },
+  {
+    "id": "basil",
+    "name": "Basilikum",
+    "price": 1.0,
+    "orderid": 8
+  },
+  {
+    "id": "fullgrain",
+    "name": "Integrale / Vollkorn",
+    "price": 1.5,
+    "orderid": 34
+  },
+  {
+    "id": "ham",
+    "name": "Kochschinken",
+    "price": 1.0,
+    "orderid": 22
+  },
+  {
+    "id": "mozzarella",
+    "name": "Mozzarella",
+    "price": 1.5,
+    "orderid": 9
+  },
+  {
+    "id": "ricotta",
+    "name": "Ricotta",
+    "price": 2.0,
+    "orderid": 19
+  },
+  {
+    "id": "anchovies",
+    "name": "Sardellen",
+    "price": 1.5,
+    "orderid": 16
+  },
+  {
+    "id": "zucchini",
+    "name": "Zucchini",
+    "price": 2.0,
+    "orderid": 29
+  },
+  {
+    "id": "spicysalami",
+    "name": "scharfe Salami",
+    "price": 1.5,
+    "orderid": 25
+  },
+  {
+    "id": "buffalomozzarella",
+    "name": "Büffelmozzarella",
+    "price": 3.5,
+    "orderid": 6
+  },
+  {
+    "id": "capers",
+    "name": "Kapern",
+    "price": 1.5,
+    "orderid": 17
+  },
+  {
+    "id": "corn",
+    "name": "Mais",
+    "price": 0.5,
+    "orderid": 15
+  },
+  {
+    "id": "blackolives",
+    "name": "schwarze Oliven",
+    "price": 1.5,
+    "orderid": 1
+  },
+  {
+    "id": "pepper",
+    "name": "Paprika",
+    "price": 2.0,
+    "orderid": 21
+  },
+  {
+    "id": "rawham",
+    "name": "Rohschinken San Daniele",
+    "price": 3.5,
+    "orderid": 11
+  },
+  {
+    "id": "tuna",
+    "name": "Thunfisch",
+    "price": 2.0,
+    "orderid": 24
+  },
+  {
+    "id": "onion",
+    "name": "Zwiebel",
+    "price": 1.0,
+    "orderid": 28
+  }
+]

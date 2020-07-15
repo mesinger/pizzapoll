@@ -1,4 +1,4 @@
-﻿namespace Amore.Domain.Context
+﻿namespace Amore.Data.Website.Context
 {
     public class AmoreCheckoutDataProvider : IAmoreCheckoutDataProvider
     {
@@ -18,7 +18,6 @@
 
     public interface IAmoreCheckoutDataProvider
     {
-        string AmoreSessionId { get; set; }
         string FirstName { get; }
         string LastName { get; }
         string Address { get; }
@@ -30,10 +29,5 @@
         int CountryId { get; }
         int UseBilling { get; }
         string SpecialInstructions { get; }
-        
-        bool HasCurrentSession()
-        {
-            return !string.IsNullOrWhiteSpace(AmoreSessionId);
-        }
     }
 }

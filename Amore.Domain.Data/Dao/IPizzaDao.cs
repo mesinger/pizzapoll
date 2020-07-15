@@ -13,20 +13,20 @@ namespace Amore.Domain.Data.Dao
         /// Returns all pizza items
         /// </summary>
         /// <returns></returns>
-        Task<List<Pizza>> GetAll();
+        Task<IEnumerable<Pizza>> GetAll();
 
         /// <summary>
         /// Returns a pizza item with given id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<Pizza> GetById(string id);
+        Task<Pizza?> GetById(string id);
         
         /// <summary>
         /// Returns a pizza with a given name
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        Task<Pizza> GetByName(string name);
+        Task<Pizza?> GetByName(string name);
     }
 }

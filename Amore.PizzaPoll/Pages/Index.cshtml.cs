@@ -14,7 +14,7 @@ namespace Amore.PizzaPoll.Pages
             _pizzaDao = pizzaDao;
         }
 
-        public List<Pizza> Pizzas { get; private set; }
+        public IEnumerable<Pizza> Pizzas { get; private set; }
         
         public async void OnGet()
         {

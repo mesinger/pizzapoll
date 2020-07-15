@@ -1,9 +1,10 @@
-using Amore.Data.Dao;
-using Amore.Data.Settings;
-using Amore.Domain.Context;
+using Amore.Data.Local;
+using Amore.Data.Local.Dao;
+using Amore.Data.Website.Context;
+using Amore.Data.Website.Provider;
 using Amore.Domain.Data.Dao;
+using Amore.Domain.Data.Provider;
 using Amore.Domain.Order;
-using Amore.Domain.Site;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
@@ -31,33 +32,26 @@ namespace Amore.PizzaPoll
             services.Configure<RouteOptions>(options => { options.LowercaseUrls = true; });
             
             // app settings
-            services.Configure<MongoGoodieDatabaseSettings>(Configuration.GetSection(nameof(MongoGoodieDatabaseSettings)));
-            services.AddSingleton<IMongoGoodieDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<MongoGoodieDatabaseSettings>>().Value);
-            
-            services.Configure<MongoPizzaDatabaseSettings>(Configuration.GetSection(nameof(MongoPizzaDatabaseSettings)));
-            services.AddSingleton<IMongoPizzaDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<MongoPizzaDatabaseSettings>>().Value);
-            
-            services.Configure<MongoPizzaOrderDatabaseSettings>(Configuration.GetSection(nameof(MongoPizzaOrderDatabaseSettings)));
-            services.AddSingleton<IMongoPizzaOrderDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<MongoPizzaOrderDatabaseSettings>>().Value);
-            
             services.Configure<AmoreCheckoutDataProvider>(Configuration.GetSection("AmoreCheckoutDataProvider"));
             services.AddSingleton<IAmoreCheckoutDataProvider>(sp =>
                 sp.GetRequiredService<IOptions<AmoreCheckoutDataProvider>>().Value);
 
             // daos and services
-            services.AddSingleton<IGoodieDao, MongoGoodieDao>();
-            services.AddSingleton<IPizzaDao, MongoPizzaDao>();
-            services.AddSingleton<IOrderDao, MongoOrderDao>();
+            var localDataProvider = new AmoreLocalDataProvider();
+            localDataProvider.Reload();
+            
+            services.AddSingleton<IAmoreLocalDataProvider>(localDataProvider);
+            services.AddSingleton<IAmoreConfigurationLoader>(localDataProvider);
 
-            services.AddSingleton<IAmoreOrderService, DummyAmoreOrderService>();
+            services.AddSingleton<IPizzaDao, LocalPizzaDao>();
+            services.AddSingleton<IGoodieDao, LocalGoodieDao>();
+            services.AddSingleton<IOrderDao, TransientOrderDao>();
+
+            services.AddSingleton<ISessionProvider, ThatsAmoreSessionProvider>();
+            services.AddSingleton<IThatsAmoreWebSiteAccessProvider, ThatsAmoreWebSiteAccessProvider>();
 
             // domain
-            services.AddSingleton<IPizzaSiteProxy, PizzaSiteProxy>();
-            services.AddSingleton<IPizzaSiteProxyFactory, PizzaSiteProxyFactory>();
-
+            services.AddSingleton<IAmoreOrderService, DummyAmoreOrderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
