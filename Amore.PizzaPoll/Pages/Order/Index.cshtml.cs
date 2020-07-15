@@ -70,12 +70,17 @@ namespace Amore.PizzaPoll.Pages.Order
             var selectedGoodieIds = FormModel.SelectedGoodies
                 .Where(pair => pair.Value)
                 .Select(pair => pair.Key).ToList();
+            
+            if (selectedGoodieIds.Intersect(pizza.DefaultGoodiesIds).Count() < 2 || selectedGoodieIds.Except(pizza.DefaultGoodiesIds).Count() > 2)
+            {
+                return RedirectToPage("Error", new {message = "Du hast eine ungültige Anzahl an Goodies ausgewählt"});
+            }
 
             var goodies = await _goodieDao.GetAllWithId(selectedGoodieIds.ToArray());
-            
+
             _amoreOrderService.PutOrder(pizza, goodies);
 
-            return RedirectToPage("../Index");
+            return RedirectToPage("Success");
         }
     }
 }

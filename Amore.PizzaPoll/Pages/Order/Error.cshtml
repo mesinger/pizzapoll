@@ -1,0 +1,14 @@
+﻿@page "{message}"
+@model Amore.PizzaPoll.Pages.Order.Error
+
+@{
+    Layout = "Shared/_Layout";
+}
+
+<h1>
+    Deine Bestellung hatte einen Fehler. Bitte versuche es erneut.
+</h1>
+
+<p>
+    @Model.ErrorMessage
+</p>
